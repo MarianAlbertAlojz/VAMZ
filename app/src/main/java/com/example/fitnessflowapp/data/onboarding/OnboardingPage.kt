@@ -1,4 +1,4 @@
-package com.example.fitnessflowapp.ui.onboarding
+package com.example.fitnessflowapp.data.onboarding
 
 import androidx.annotation.DrawableRes
 
