@@ -42,7 +42,7 @@ fun PhysicalActivityLevelScreen(
                     .height(60.dp)
             ) {
                 Text(
-                    text = "Next",
+                    text = "Begginer",
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -55,7 +55,7 @@ fun PhysicalActivityLevelScreen(
                     .height(60.dp)
             ) {
                 Text(
-                    text = "Next",
+                    text = "Intermediate",
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -68,7 +68,7 @@ fun PhysicalActivityLevelScreen(
                     .height(60.dp)
             ) {
                 Text(
-                    text = "Next",
+                    text = "Advance",
                     fontWeight = FontWeight.Bold
                 )
             }

@@ -1,5 +1,6 @@
 package com.example.fitnessflowapp.navigation
 
+import ProfileSetupRoute
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -8,7 +9,6 @@ import com.example.fitnessflowapp.data.setup.SetupPageRepository
 import com.example.fitnessflowapp.ui.onboarding.OnboardingScreen
 import com.example.fitnessflowapp.ui.onboarding.WelcomeScreen
 import com.example.fitnessflowapp.ui.setup.AgeScreen
-import com.example.fitnessflowapp.ui.setup.FillYourProfileScreen
 import com.example.fitnessflowapp.ui.setup.GenderScreen
 import com.example.fitnessflowapp.ui.setup.GoalScreen
 import com.example.fitnessflowapp.ui.setup.HeightScreen
@@ -110,12 +110,7 @@ fun AppNavGraph(navController: NavHostController) {
         }
 
         composable(Screen.SetupFillProfile.route) {
-            FillYourProfileScreen(
-                title = SetupPageRepository.getPages()[SetupStep.Profile.pageIndex].title,
-                description = SetupPageRepository.getPages()[SetupStep.Profile.pageIndex].description,
-                onBack = { navController.popBackStack() },
-                onNext = { navController.navigate(Screen.Setup.route) }
-            )
+            ProfileSetupRoute(navController)//toto si este prejst a dopisat
         }
 
         //podla chuti potom dalsia navigacia

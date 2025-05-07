@@ -19,7 +19,6 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.R
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -37,6 +36,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.fitnessflowapp.R
 import com.example.fitnessflowapp.ui.components.SetupPageLayout
 import com.example.fitnessflowapp.ui.theme.Tan
 import com.example.fitnessflowapp.ui.theme.White
@@ -46,6 +46,7 @@ fun FillYourProfileScreen(
     title: String,
     description: String,
     onBack: () -> Unit,
+    onEditPictureClick: () -> Unit,
     onNext: () -> Unit
 ) {
 
@@ -68,43 +69,43 @@ fun FillYourProfileScreen(
         ) {
             Box {
                 Image(
-                    painter = , //toto vyriesit
+                    painter = painterResource(id = R.drawable.david), //toto vyriesit
                     contentDescription = "Profile picture",
                     modifier = Modifier
-                        .size(120.dp)
+                        .size(125.dp)
                         .clip(CircleShape)
                 )
                 IconButton(
-                    onClick = ,// toto tiez
+                    onClick = onEditPictureClick,// toto tiez
                     modifier = Modifier
                         .align(Alignment.BottomEnd)
-                        .offset(x = (-8).dp, y = (-8).dp)
-                        .size(32.dp)
+                        .offset(x = (0).dp, y = (-8).dp)
+                        .size(30.dp)
                         .background(White, shape = CircleShape)
                 ) {
                     Icon(
-                        painter = painterResource(id = ), // ikonu pridat
+                        painter = painterResource(id = R.drawable.icon_edit), // ikonu pridat
                         contentDescription = "Edit picture",
-                        tint = Color.White,
+                        tint = Color.Black,
                         modifier = Modifier.size(20.dp)
                     )
                 }
             }
 
             Spacer(Modifier.height(24.dp))
-
-
             ProfileTextField(
                 label = "Full name",
                 value = fullName,
                 onValueChange = { fullName = it }
             )
+            
             Spacer(Modifier.height(16.dp))
             ProfileTextField(
                 label = "Nickname",
                 value = nickname,
                 onValueChange = { nickname = it }
             )
+
             Spacer(Modifier.height(16.dp))
             ProfileTextField(
                 label = "Email",
@@ -112,6 +113,7 @@ fun FillYourProfileScreen(
                 keyboardType = KeyboardType.Email,
                 onValueChange = { email = it }
             )
+
             Spacer(Modifier.height(16.dp))
             ProfileTextField(
                 label = "Mobile Number",
@@ -119,12 +121,10 @@ fun FillYourProfileScreen(
                 keyboardType = KeyboardType.Phone,
                 onValueChange = { mobileNumber = it }
             )
-
             Spacer(Modifier.weight(1f))
 
-
             Button(
-                onClick = ,
+                onClick = onNext,
                 shape = RoundedCornerShape(50),
                 colors = ButtonDefaults.buttonColors(containerColor = White),
                 modifier = Modifier
@@ -161,9 +161,12 @@ private fun ProfileTextField(
             value = value,
             onValueChange = onValueChange,
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = keyboardType),
-            colors = TextFieldDefaults.textFieldColors(
-                containerColor = Tan,
-                textColor = Color.Black,
+            colors = TextFieldDefaults.colors(
+                focusedContainerColor = Tan,
+                unfocusedContainerColor = Tan,
+                disabledContainerColor = Tan.copy(alpha = 0.5f),
+                focusedTextColor = Color.Black,
+                unfocusedTextColor = Color.Black,
                 cursorColor = Color.Black,
                 focusedIndicatorColor = Color.Transparent,
                 unfocusedIndicatorColor = Color.Transparent
