@@ -1,6 +1,5 @@
 package com.example.fitnessflowapp.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -10,6 +9,8 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
+import com.example.fitnessflowapp.R
 
 private val DarkColorScheme = darkColorScheme(
    // primary = Purple80,
@@ -21,8 +22,8 @@ private val LightColorScheme = lightColorScheme(
     primary = Tan,
     secondary = PapayaWhip,
     onSecondary = LightBlack,
-    tertiary = Grey_1,
-    onTertiary = Grey_2,
+    tertiary = Grey1,
+    onTertiary = Grey2,
 
 
     /* Other default colors to override
@@ -49,8 +50,21 @@ fun FitnessFlowAppTheme(
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        darkTheme -> darkColorScheme(
+            //primary = colorResource(R.color.primary_dark),
+            //secondary = colorResource(R.color.secondary_dark),
+            //tertiary = colorResource(R.color.tertiary_dark)
+        )
+
+        else -> lightColorScheme(
+            primary = colorResource(R.color.tan),//roztriedit secondary a on secondary podla ich funkcie
+            secondary = colorResource(R.color.papayaWhip),
+            onSecondary = colorResource(R.color.lightBlack),
+            tertiary = colorResource(R.color.grey_1),
+            onTertiary = colorResource(R.color.grey_2),
+            background = colorResource(R.color.white),
+            surface = colorResource(R.color.black)
+        )
     }
 
     MaterialTheme(

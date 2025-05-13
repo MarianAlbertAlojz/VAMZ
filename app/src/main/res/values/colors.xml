@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="purple_200">#FFBB86FC</color>
-    <color name="lightBlack">#232323</color>
-    <color name="iconsColor_grey">#7B6F72</color>
-    <color name="tan">#C9A690</color>
-    <color name="papayaWhip">#FFEECF</color>
+    <color name="lightBlack">#FF232323</color>
+    <color name="grey_1">#FF7B6F72</color>
+    <color name="grey_2">#FFADA4A5</color>
+    <color name="tan">#FFC9A690</color>
+    <color name="papayaWhip">#FFFFEECF</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
