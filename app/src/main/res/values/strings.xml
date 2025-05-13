@@ -1,3 +1,37 @@
 <resources>
+    <!-- Common -->
     <string name="app_name">FitnessFlowApp</string>
+
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="start">Start</string>
+    <string name="get_started">Get Started</string>
+    <string name="continue_text">Continue</string>
+
+    <!-- Onboarding -->
+    <!-- Onboarding titles -->
+    <string name="onboarding_title_1">Track Your Goal</string>
+    <string name="onboarding_title_2">Get Burn</string>
+    <string name="onboarding_title_3">Eat Well</string>
+    <string name="onboarding_title_4">Improve Sleep Quality</string>
+    <!-- Onboarding descriptions -->
+    <string name="onboarding_desc_1">Don’t worry if you have trouble determining your goals, We can help you determine your goals and track your goals</string>
+    <string name="onboarding_desc_2">Let’s keep burning, to achieve your goals, it hurts only temporarily, if you give up now you will be in pain forever</string>
+    <string name="onboarding_desc_3">Let’s start a healthy lifestyle with us, we can determine your diet every day. Healthy eating is fun!</string>
+    <string name="onboarding_desc_4">Improve the quality of your sleep with us, good sleep quality can bring a good mood in the morning.</string>
+
+    <!-- SetupPage -->
+    <!-- SetupPage titles -->
+    <string name="setup_title_1">Consistency Is The Key To Progress. Don’t Give Up</string>
+    <string name="setup_title_2">What’s Your Gender</string>
+    <string name="setup_title_3">How Old Are You?</string>
+    <string name="setup_title_4">What Is Your Weight?</string>
+    <string name="setup_title_5">What Is Your Height?</string>
+    <string name="setup_title_6">What Is Your Goal?</string>
+    <string name="setup_title_7">Physical Activity Level</string>
+    <string name="setup_title_8">Fill Your Profile</string>
+    <!-- SetupPage descriptions -->
+    <string name="setup_lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+
+
 </resources>

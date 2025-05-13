@@ -2,10 +2,11 @@ package com.example.fitnessflowapp.navigation
 
 import ProfileSetupRoute
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.fitnessflowapp.data.setup.SetupPageRepository
+import com.example.fitnessflowapp.data.repository.SetupPageRepository
 import com.example.fitnessflowapp.ui.onboarding.OnboardingScreen
 import com.example.fitnessflowapp.ui.onboarding.WelcomeScreen
 import com.example.fitnessflowapp.ui.setup.AgeScreen
@@ -29,6 +30,8 @@ enum class SetupStep(val route: String, val pageIndex: Int) {
 
 @Composable
 fun AppNavGraph(navController: NavHostController) {
+    val context = LocalContext.current
+
     NavHost(
         navController = navController,
         startDestination = Screen.Welcome.route
@@ -48,8 +51,8 @@ fun AppNavGraph(navController: NavHostController) {
 
         composable(Screen.Setup.route) {
             SetupScreen(
-                title = SetupPageRepository.getPages()[SetupStep.Setup.pageIndex].title,
-                description = SetupPageRepository.getPages()[SetupStep.Setup.pageIndex].description,
+                title = SetupPageRepository.getPages(context)[SetupStep.Setup.pageIndex].title,
+                description = SetupPageRepository.getPages(context)[SetupStep.Setup.pageIndex].description,
                 onBack = { navController.popBackStack() },
                 onNext = { navController.navigate(Screen.SetupGender.route) }
             )
@@ -57,8 +60,8 @@ fun AppNavGraph(navController: NavHostController) {
 
         composable(Screen.SetupGender.route) {
             GenderScreen(
-                title = SetupPageRepository.getPages()[SetupStep.Gender.pageIndex].title,
-                description = SetupPageRepository.getPages()[SetupStep.Gender.pageIndex].description,
+                title = SetupPageRepository.getPages(context)[SetupStep.Gender.pageIndex].title,
+                description = SetupPageRepository.getPages(context)[SetupStep.Gender.pageIndex].description,
                 onBack = { navController.popBackStack() },
                 onNext = { navController.navigate(Screen.SetupAge.route) },
             )
@@ -66,8 +69,8 @@ fun AppNavGraph(navController: NavHostController) {
 
         composable(Screen.SetupAge.route) {
             AgeScreen(
-                title = SetupPageRepository.getPages()[SetupStep.Age.pageIndex].title,
-                description = SetupPageRepository.getPages()[SetupStep.Age.pageIndex].description,
+                title = SetupPageRepository.getPages(context)[SetupStep.Age.pageIndex].title,
+                description = SetupPageRepository.getPages(context)[SetupStep.Age.pageIndex].description,
                 onBack = { navController.popBackStack() },
                 onNext = { navController.navigate(Screen.SetupWeight.route) },
             )
@@ -75,8 +78,8 @@ fun AppNavGraph(navController: NavHostController) {
 
         composable(Screen.SetupWeight.route) {
             WeightScreen(
-                title = SetupPageRepository.getPages()[SetupStep.Weight.pageIndex].title,
-                description = SetupPageRepository.getPages()[SetupStep.Weight.pageIndex].description,
+                title = SetupPageRepository.getPages(context)[SetupStep.Weight.pageIndex].title,
+                description = SetupPageRepository.getPages(context)[SetupStep.Weight.pageIndex].description,
                 onBack = { navController.popBackStack() },
                 onNext = { navController.navigate(Screen.SetupHeight.route) },
             )
@@ -84,8 +87,8 @@ fun AppNavGraph(navController: NavHostController) {
 
         composable(Screen.SetupHeight.route) {
             HeightScreen(
-                title = SetupPageRepository.getPages()[SetupStep.Height.pageIndex].title,
-                description = SetupPageRepository.getPages()[SetupStep.Height.pageIndex].description,
+                title = SetupPageRepository.getPages(context)[SetupStep.Height.pageIndex].title,
+                description = SetupPageRepository.getPages(context)[SetupStep.Height.pageIndex].description,
                 onBack = { navController.popBackStack() },
                 onNext = { navController.navigate(Screen.SetupGoal.route) },
             )
@@ -93,8 +96,8 @@ fun AppNavGraph(navController: NavHostController) {
 
         composable(Screen.SetupGoal.route) {
             GoalScreen(
-                title = SetupPageRepository.getPages()[SetupStep.Goal.pageIndex].title,
-                description = SetupPageRepository.getPages()[SetupStep.Goal.pageIndex].description,
+                title = SetupPageRepository.getPages(context)[SetupStep.Goal.pageIndex].title,
+                description = SetupPageRepository.getPages(context)[SetupStep.Goal.pageIndex].description,
                 onBack = { navController.popBackStack() },
                 onNext = { navController.navigate(Screen.SetupPhysicalActivity.route) },
             )
@@ -102,8 +105,8 @@ fun AppNavGraph(navController: NavHostController) {
 
         composable(Screen.SetupPhysicalActivity.route) {
             PhysicalActivityLevelScreen(
-                title = SetupPageRepository.getPages()[SetupStep.Activity.pageIndex].title,
-                description = SetupPageRepository.getPages()[SetupStep.Activity.pageIndex].description,
+                title = SetupPageRepository.getPages(context)[SetupStep.Activity.pageIndex].title,
+                description = SetupPageRepository.getPages(context)[SetupStep.Activity.pageIndex].description,
                 onBack = { navController.popBackStack() },
                 onNext = { navController.navigate(Screen.SetupFillProfile.route) },
             )

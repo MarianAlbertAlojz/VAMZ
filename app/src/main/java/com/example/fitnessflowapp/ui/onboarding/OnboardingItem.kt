@@ -23,7 +23,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.example.fitnessflowapp.data.onboarding.OnboardingPage
+import com.example.fitnessflowapp.data.model.OnboardingPage
 import com.example.fitnessflowapp.ui.theme.Black
 import com.example.fitnessflowapp.ui.theme.Tan
 import com.example.fitnessflowapp.ui.theme.White
