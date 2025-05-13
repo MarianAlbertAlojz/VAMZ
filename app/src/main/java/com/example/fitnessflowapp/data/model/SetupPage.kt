@@ -1,4 +1,4 @@
-package com.example.fitnessflowapp.data.setup
+package com.example.fitnessflowapp.data.model
 
 data class SetupPage(
     val title: String,
