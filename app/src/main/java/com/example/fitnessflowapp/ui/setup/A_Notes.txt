@@ -1,28 +1,62 @@
-Celkovo:
-    -urobit si daku databazku kde zacnem potom nahravat jednotlive udaje
-        -ci ich nahravat za behu pri dalsom next alebo pri kliknuti start
-    -uz zapisane udaje ponechat ak sa vrati naspat(toto uvidime)
-    -
-AgeScreen-
-FillYourProfileScreen:
-    Hlavne:
-        -Start button pomenit potom teda zmenit next na start(pohrat sa s setupPageLayout
-        -velkost ikony pri nahratej fotke
-    Vedlajsie bolo by dobre:
+=========================
+📦 Celkový Prehľad
+=========================
+🗃️ Úlohy:
+- [ ] Vytvoriť databázu pre ukladanie údajov
+    - Rozhodnúť, či ukladať priebežne (next) alebo len pri kliknutí na start
+- [ ] Zachovať údaje aj pri návrate späť (overiť)
+- [ ] Dokončiť všetky obrazovky (kontrola dizajnu a funkcionality)
 
-GenderScreen-
-GoalScreen:
-    Hlavne:
-        -pomenit tlacidla podla figmy(farba,text ostatok)
-            -ci ten text nechat na surovo alebo to niekde do strings.xml pacnut
-HeightScreen
-PhysicalActivityLevelScreen:
-    Hlavne:
-        -pomenit tlacidla podla figmy(farba,text ostatok)
-            -ci ten text nechat na surovo alebo to niekde do strings.xml pacnut
-        -pri stlaceni zvyraznit urobit border
-    Vedlajsie bolo by dobre:
-        -ked stlaci button tak ostatne zmiznu a zobrazi sa dake info ze co to cca obnasa
-            -Begginer napr: 10klikov 5 zhybov 60sec plank
-SetupScreen
-WeightScreen
+=========================
+👤 FillYourProfileScreen
+=========================
+🔹 Hlavné:
+- [ ] Premenovať "Next" na "Start" (v `SetupPageLayout`)
+- [ ] Upraviť veľkosť ikony pri nahratej fotke
+
+🔸 Vedľajšie:
+- [ ] Skontrolovať rozmiestnenie a zarovnanie
+
+=========================
+📅 AgeScreen
+=========================
+(no specific tasks yet)
+
+=========================
+🚻 GenderScreen
+=========================
+(no specific tasks yet)
+
+=========================
+🎯 GoalScreen
+=========================
+🔹 Hlavné:
+- [ ] Upraviť tlačidlá podľa Figma (farba, text, štýl)
+    - [ ] Rozhodnúť, či texty dať do `strings.xml` alebo nechať natvrdo
+
+=========================
+📏 HeightScreen
+=========================
+(no specific tasks yet)
+
+=========================
+💪 PhysicalActivityLevelScreen
+=========================
+🔹 Hlavné:
+- [ ] Upraviť tlačidlá podľa Figma (farba, text, štýl)
+    - [ ] Rozhodnúť, či texty dať do `strings.xml` alebo nechať natvrdo
+- [ ] Zvýrazniť tlačidlo po stlačení (pridať border)
+
+🔸 Vedľajšie:
+- [ ] Po kliknutí skryť ostatné a zobraziť popis aktivity
+    - Príklad: 🧍‍♂️ Beginner – 10 klikov, 5 zhybov, 60 sekúnd plank
+
+=========================
+⚙️ SetupScreen
+=========================
+(no specific tasks yet)
+
+=========================
+⚖️ WeightScreen
+=========================
+(no specific tasks yet)
