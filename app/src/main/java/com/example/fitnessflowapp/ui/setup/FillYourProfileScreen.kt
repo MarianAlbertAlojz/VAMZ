@@ -14,8 +14,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -23,38 +21,30 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.example.fitnessflowapp.R
 import com.example.fitnessflowapp.ui.components.SetupPageLayout
 import com.example.fitnessflowapp.ui.theme.Tan
 import com.example.fitnessflowapp.ui.theme.White
+import com.example.fitnessflowapp.ui.viewmodel.ProfileField
+import com.example.fitnessflowapp.ui.viewmodel.ProfileFormState
 
 @Composable
 fun FillYourProfileScreen(
     title: String,
     description: String,
-    onBack: () -> Unit,
+    form: ProfileFormState,
     onEditPictureClick: () -> Unit,
+    onFieldChanged: (ProfileField, String) -> Unit,
+    onBack: () -> Unit,
     onNext: () -> Unit
 ) {
-
-    var fullName by remember { mutableStateOf("") }
-    var nickname by remember { mutableStateOf("") }
-    var email by remember { mutableStateOf("") }
-    var mobileNumber by remember { mutableStateOf("") }
-
     SetupPageLayout(
         title = title,
         description = description,
@@ -69,14 +59,14 @@ fun FillYourProfileScreen(
         ) {
             Box {
                 Image(
-                    painter = painterResource(id = R.drawable.david), //toto vyriesit
-                    contentDescription = "Profile picture",
+                    painter = painterResource(id = R.drawable.david),
+                    contentDescription = "Profile picture",//tieto stringy niekam inak dat asi do res
                     modifier = Modifier
                         .size(125.dp)
                         .clip(CircleShape)
                 )
                 IconButton(
-                    onClick = onEditPictureClick,// toto tiez
+                    onClick = onEditPictureClick,
                     modifier = Modifier
                         .align(Alignment.BottomEnd)
                         .offset(x = (0).dp, y = (-8).dp)
@@ -84,8 +74,8 @@ fun FillYourProfileScreen(
                         .background(White, shape = CircleShape)
                 ) {
                     Icon(
-                        painter = painterResource(id = R.drawable.icon_edit), // ikonu pridat
-                        contentDescription = "Edit picture",
+                        painter = painterResource(id = R.drawable.icon_edit),
+                        contentDescription = "Edit picture",//tieto stringy niekam inak dat asi do res
                         tint = Color.Black,
                         modifier = Modifier.size(20.dp)
                     )
@@ -94,50 +84,32 @@ fun FillYourProfileScreen(
 
             Spacer(Modifier.height(24.dp))
             ProfileTextField(
-                label = "Full name",
-                value = fullName,
-                onValueChange = { fullName = it }
+                label         = "Full name",//tieto stringy niekam inak dat asi do res
+                value         = form.fullName,
+                onValueChange = { onFieldChanged(ProfileField.FullName, it) }
             )
-            
             Spacer(Modifier.height(16.dp))
             ProfileTextField(
-                label = "Nickname",
-                value = nickname,
-                onValueChange = { nickname = it }
+                label         = "Nickname",//tieto stringy niekam inak dat asi do res
+                value         = form.nickname,
+                onValueChange = { onFieldChanged(ProfileField.Nickname, it) }
             )
-
             Spacer(Modifier.height(16.dp))
             ProfileTextField(
-                label = "Email",
-                value = email,
-                keyboardType = KeyboardType.Email,
-                onValueChange = { email = it }
+                label         = "Email",//tieto stringy niekam inak dat asi do res
+                value         = form.email,
+                onValueChange = { onFieldChanged(ProfileField.Email, it) },
+                keyboardType  = KeyboardType.Email
             )
-
             Spacer(Modifier.height(16.dp))
             ProfileTextField(
-                label = "Mobile Number",
-                value = mobileNumber,
-                keyboardType = KeyboardType.Phone,
-                onValueChange = { mobileNumber = it }
+                label         = "Mobile Number",//tieto stringy niekam inak dat asi do res
+                value         = form.mobileNumber,
+                onValueChange = { onFieldChanged(ProfileField.Phone, it) },
+                keyboardType  = KeyboardType.Phone
             )
             Spacer(Modifier.weight(1f))
 
-            Button(
-                onClick = onNext,
-                shape = RoundedCornerShape(50),
-                colors = ButtonDefaults.buttonColors(containerColor = White),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(56.dp)
-            ) {
-                Text(
-                    "Start",
-                    color = Color.White,
-                    fontSize = 18.sp,
-                    fontWeight = FontWeight.Bold
-                )
-            }
         }
     }
 }

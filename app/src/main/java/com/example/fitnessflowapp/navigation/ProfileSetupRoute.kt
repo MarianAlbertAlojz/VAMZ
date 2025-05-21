@@ -1,13 +1,17 @@
+
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import com.example.fitnessflowapp.data.repository.SetupPageRepository
 import com.example.fitnessflowapp.navigation.Screen
 import com.example.fitnessflowapp.navigation.SetupStep
 import com.example.fitnessflowapp.ui.setup.FillYourProfileScreen
+import com.example.fitnessflowapp.ui.viewmodel.SetupViewModel
 
 /*
 * tu budem musiet spravit to ze sa to bude dat aj editovat teda daky crop fotky
@@ -15,24 +19,33 @@ import com.example.fitnessflowapp.ui.setup.FillYourProfileScreen
 * budem musiet dotiahnut viewModel teda cely MVVM
 * */
 @Composable
-fun ProfileSetupRoute(navController: NavHostController) {
+fun ProfileSetupRoute(
+    navController: NavHostController,
+    vm : SetupViewModel
+) {
+    val form by vm.formState.collectAsState()
     val context = LocalContext.current
     val page = SetupPageRepository.getPages(context)[SetupStep.Profile.pageIndex]
 
     val pickImage = rememberLauncherForActivityResult(
-        ActivityResultContracts.GetContent()
+        contract = ActivityResultContracts.GetContent()
     ) { uri: Uri? ->
-        uri?.let { }
+        uri?.let { vm.updateAvatarUri(it) }
     }
 
     FillYourProfileScreen(
         title = page.title,
         description = page.description,
-        onBack = { navController.popBackStack() },
+        form = form,
         onEditPictureClick = { pickImage.launch("image/*") },
+        onFieldChanged = { field, value ->
+            vm.updateProfileField(field, value)
+        },
+        onBack = { navController.popBackStack() },
         onNext = {
-            navController.navigate(Screen.Setup.route) {
-                popUpTo(Screen.SetupFillProfile.route) { inclusive = true }
+            vm.saveAllAndFinish()
+            navController.navigate(Screen.Home.route) {
+                popUpTo(SetupStep.Setup.route) { inclusive = true }
             }
         }
     )

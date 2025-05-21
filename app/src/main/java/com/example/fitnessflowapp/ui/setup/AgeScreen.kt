@@ -14,10 +14,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,42 +24,44 @@ import com.example.fitnessflowapp.ui.components.SetupPageLayout
 
 @Composable
 fun AgeScreen(
+    age: Int,
+    onAgeChanged: (Int) -> Unit,
     title: String,
     description: String,
     onBack: () -> Unit,
     onNext: () -> Unit
 ) {
-    var age by rememberSaveable { mutableIntStateOf(28) }
-
     SetupPageLayout(
         title = title,
         description = description,
         onBack = onBack,
         onNext = onNext
     ) {
-
-
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            Text("How Old Are You?", style = MaterialTheme.typography.headlineMedium)
+            Text(title, style = MaterialTheme.typography.headlineMedium)
 
             Spacer(modifier = Modifier.height(20.dp))
 
             NumberPicker(
                 value = age,
                 range = 15..100,
-                onValueChange = { age = it },
+                onValueChange = onAgeChanged,
                 dividersColor = MaterialTheme.colorScheme.primary,
-                textStyle = MaterialTheme.typography.headlineLarge
+                textStyle = MaterialTheme.typography.headlineLarge.copy(
+                    color = MaterialTheme.colorScheme.onBackground
+                )
             )
-            HorizontalNumberPicker(
+
+            Text("Selected: $age years", style = MaterialTheme.typography.bodyLarge)
+            /*HorizontalNumberPicker(
                 selectedValue = age,
                 range = 40..150,
                 onValueChange = { age = it }
-            )
+            )*/
         }
     }
 }
