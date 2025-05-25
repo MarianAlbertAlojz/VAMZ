@@ -13,7 +13,7 @@ sealed class Screen(val route: String) {
     object SetupPhysicalActivity : Screen("setup_activity")
     object SetupFillProfile : Screen("setup_profile")
     //later ill add other screens
-    //object Home : Screen("home")
+    object Home : Screen("home")
     //object AllWorkouts : Screen("allworkouts")
     //object Home : Screen("home")
     //object Home : Screen("home")
