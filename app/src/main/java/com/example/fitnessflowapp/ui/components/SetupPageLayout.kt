@@ -32,6 +32,7 @@ fun SetupPageLayout(
     description: String,
     onBack: () -> Unit,
     onNext: () -> Unit,
+    isNextEnabled: Boolean = true,
     content: @Composable ColumnScope.() -> Unit
 ) {
     Scaffold(
@@ -61,6 +62,7 @@ fun SetupPageLayout(
                 .fillMaxWidth()) {
                 Button(
                     onClick = onNext,
+                    enabled = isNextEnabled,
                     shape = RoundedCornerShape(50),
                     modifier = Modifier
                         .fillMaxWidth()
