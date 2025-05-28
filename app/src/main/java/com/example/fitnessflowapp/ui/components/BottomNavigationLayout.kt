@@ -20,8 +20,8 @@ import com.example.fitnessflowapp.R
 enum class BottomTab(val route: String, val iconRes: Int, val label: String) {
     Home("home", R.drawable.female_icon, "Home"),
     Profile("profile", R.drawable.female_icon, "Profile"),
-    Stats("stats", R.drawable.female_icon, "Statistics"),
-    Photo("photo", R.drawable.female_icon, "Progress")
+    Stats("statistics", R.drawable.female_icon, "Statistics"),
+    Photo("progress_photo", R.drawable.female_icon, "Progress")
 }
 
 

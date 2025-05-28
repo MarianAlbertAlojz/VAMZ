@@ -39,11 +39,11 @@ import com.example.fitnessflowapp.ui.components.BottomNavigationDashboard
 import com.example.fitnessflowapp.ui.components.FitnessFab
 
 @Composable
-fun HomeScreen(
+fun StatisticsScreen(
     navController: NavHostController
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.destination?.route ?: Screen.Home.route
+    val currentRoute = navBackStackEntry?.destination?.route ?: Screen.Statistic.route
 
     Scaffold(
         bottomBar = {
@@ -58,7 +58,7 @@ fun HomeScreen(
             )
         },
         floatingActionButton = {
-            FitnessFab {  }
+            FitnessFab { }
         },
         floatingActionButtonPosition = FabPosition.Center
     ) { innerPadding ->
@@ -70,7 +70,10 @@ fun HomeScreen(
                 .padding(16.dp)
                 .verticalScroll(rememberScrollState())
         ) {
-            Text("Welcome Back,", style = MaterialTheme.typography.titleSmall)
+            Text(
+                "Welcome Back,",
+                style = MaterialTheme.typography.titleSmall
+            )
             Text(
                 "Marian Bobcek",
                 style = MaterialTheme.typography.headlineSmall,
@@ -84,8 +87,14 @@ fun HomeScreen(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Column(modifier = Modifier.padding(16.dp)) {
-                    Text("BMI (Body Mass Index)", style = MaterialTheme.typography.bodyMedium)
-                    Text("You have a normal weight", style = MaterialTheme.typography.labelMedium)
+                    Text(
+                        "BMI (Body Mass Index)",
+                        style = MaterialTheme.typography.bodyMedium
+                    )
+                    Text(
+                        "You have a normal weight",
+                        style = MaterialTheme.typography.labelMedium
+                    )
                     Spacer(modifier = Modifier.height(8.dp))
                     Box(
                         modifier = Modifier
@@ -105,7 +114,6 @@ fun HomeScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-
             Row(
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -120,7 +128,6 @@ fun HomeScreen(
                 }
             }
 
-
             Box(
                 modifier = Modifier
                     .height(180.dp)
@@ -133,7 +140,6 @@ fun HomeScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-
             Button(
                 onClick = { },
                 modifier = Modifier.fillMaxWidth(),
@@ -143,7 +149,6 @@ fun HomeScreen(
             }
 
             Spacer(modifier = Modifier.height(16.dp))
-
 
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween,
@@ -166,4 +171,5 @@ fun HomeScreen(
         }
     }
 }
+
 

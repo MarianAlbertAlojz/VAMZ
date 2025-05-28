@@ -14,6 +14,9 @@ sealed class Screen(val route: String) {
     object SetupFillProfile : Screen("setup_profile")
     //later ill add other screens
     object Home : Screen("home")
+    object Profile : Screen("profile")
+    object Statistic : Screen("statistics")
+    object ProgressPhoto : Screen("progress_photo")
     //object AllWorkouts : Screen("allworkouts")
     //object Home : Screen("home")
     //object Home : Screen("home")

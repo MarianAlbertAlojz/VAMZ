@@ -39,11 +39,11 @@ import com.example.fitnessflowapp.ui.components.BottomNavigationDashboard
 import com.example.fitnessflowapp.ui.components.FitnessFab
 
 @Composable
-fun HomeScreen(
+fun ProgressPhotoScreen(
     navController: NavHostController
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.destination?.route ?: Screen.Home.route
+    val currentRoute = navBackStackEntry?.destination?.route ?: Screen.ProgressPhoto.route
 
     Scaffold(
         bottomBar = {
@@ -166,4 +166,5 @@ fun HomeScreen(
         }
     }
 }
+
 

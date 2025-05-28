@@ -1,5 +1,6 @@
 package com.example.fitnessflowapp.navigation
 
+import ProfileScreen
 import ProfileSetupRoute
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -11,6 +12,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.fitnessflowapp.data.repository.SetupPageRepository
 import com.example.fitnessflowapp.ui.navigation.HomeScreen
+import com.example.fitnessflowapp.ui.navigation.ProgressPhotoScreen
+import com.example.fitnessflowapp.ui.navigation.StatisticsScreen
 import com.example.fitnessflowapp.ui.onboarding.OnboardingScreen
 import com.example.fitnessflowapp.ui.onboarding.WelcomeScreen
 import com.example.fitnessflowapp.ui.setup.AgeScreen
@@ -34,20 +37,23 @@ enum class SetupStep(val route: String, val pageIndex: Int) {
 }
 
 @Composable
-fun AppNavGraph(navController: NavHostController) {
+fun AppNavGraph(
+    navController: NavHostController,
+    startDestination: String
+) {
     val context = LocalContext.current
     val vm: SetupViewModel = viewModel()
     val uiSetupState by vm.uiState.collectAsState()
 
     NavHost(
         navController = navController,
-        startDestination = Screen.Welcome.route
+        startDestination = startDestination
     ) {
         composable(Screen.Welcome.route) {
             WelcomeScreen(
                 onGetStartedClick = {
-                    navController.navigate(Screen.Setup.route) //nastavene kvoli debugu potom prehodit
-                    //navController.navigate(Screen.Onboarding.route)
+                    //navController.navigate(Screen.Setup.route) //nastavene kvoli debugu potom prehodit
+                    navController.navigate(Screen.Onboarding.route)
                 }
             )
         }
@@ -139,7 +145,19 @@ fun AppNavGraph(navController: NavHostController) {
         }
 
         composable(Screen.Home.route) {
-            HomeScreen()
+            HomeScreen(navController)
+        }
+
+        composable(Screen.Profile.route) {
+            ProfileScreen(navController)
+        }
+
+        composable(Screen.ProgressPhoto.route) {
+            ProgressPhotoScreen(navController)
+        }
+
+        composable(Screen.Statistic.route) {
+            StatisticsScreen(navController)
         }
 
         //podla chuti potom dalsia navigacia
