@@ -1,10 +1,10 @@
-package com.example.fitnessflowapp.data.repository
+package com.example.fitnessflowapp.static
 
 import android.content.Context
 import com.example.fitnessflowapp.R
 import com.example.fitnessflowapp.data.model.OnboardingPage
 
-object OnboardingPageRepository {
+object OnboardingPages {
     fun getPages(context: Context): List<OnboardingPage> = listOf(
         OnboardingPage(
             title = context.getString(R.string.onboarding_title_1),
