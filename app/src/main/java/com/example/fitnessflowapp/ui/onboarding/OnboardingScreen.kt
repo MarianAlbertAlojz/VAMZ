@@ -8,7 +8,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
-import com.example.fitnessflowapp.data.repository.OnboardingPageRepository
+import com.example.fitnessflowapp.static.OnboardingPages
 import com.example.fitnessflowapp.navigation.Screen
 import kotlinx.coroutines.launch
 
@@ -17,7 +17,7 @@ fun OnboardingScreen(
     navController: NavHostController
 ) {
     val context = LocalContext.current
-    val pages = OnboardingPageRepository.getPages(context)
+    val pages = OnboardingPages.getPages(context)
     val pageCount = pages.size
     val pagerState = rememberPagerState(pageCount = { pageCount })
     val scope = rememberCoroutineScope()

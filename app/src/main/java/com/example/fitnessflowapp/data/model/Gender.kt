@@ -1,6 +1,6 @@
 package com.example.fitnessflowapp.data.model
 
-enum class Gender {
+/*enum class Gender {
     Male, Female
-}
+}*/
 

@@ -1,9 +1,9 @@
 package com.example.fitnessflowapp.data.local
 
 import androidx.room.TypeConverter
+import com.example.fitnessflowapp.data.model.ActivityLevel
 import com.example.fitnessflowapp.data.model.Gender
 import com.example.fitnessflowapp.data.model.Goal
-import com.example.fitnessflowapp.ui.setup.ActivityLevel
 
 class Converters {
     @TypeConverter

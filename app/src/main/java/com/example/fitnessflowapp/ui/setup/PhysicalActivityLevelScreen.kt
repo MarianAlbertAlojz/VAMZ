@@ -16,9 +16,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.fitnessflowapp.data.model.ActivityLevel
 import com.example.fitnessflowapp.ui.components.SetupPageLayout
 
-enum class ActivityLevel { Beginner, Intermediate, Advanced } // toto potom premysliet ze kde to dat
+//enum class ActivityLevel { Beginner, Intermediate, Advanced } // toto potom premysliet ze kde to dat
 
 @Composable
 fun PhysicalActivityLevelScreen(

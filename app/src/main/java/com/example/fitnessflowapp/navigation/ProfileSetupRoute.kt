@@ -7,7 +7,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
-import com.example.fitnessflowapp.data.repository.SetupPageRepository
+import com.example.fitnessflowapp.static.SetupPages
 import com.example.fitnessflowapp.navigation.Screen
 import com.example.fitnessflowapp.navigation.SetupStep
 import com.example.fitnessflowapp.ui.setup.FillYourProfileScreen
@@ -25,7 +25,7 @@ fun ProfileSetupRoute(
 ) {
     val form by vm.formState.collectAsState()
     val context = LocalContext.current
-    val page = SetupPageRepository.getPages(context)[SetupStep.Profile.pageIndex]
+    val page = SetupPages.getPages(context)[SetupStep.Profile.pageIndex]
 
     val pickImage = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent()

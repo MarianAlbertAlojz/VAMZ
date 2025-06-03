@@ -2,12 +2,10 @@ package com.example.fitnessflowapp.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.fitnessflowapp.ui.setup.ActivityLevel
 
 @Entity(tableName = "user_profile")
 data class UserProfile(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
+    @PrimaryKey(autoGenerate = true) val id: Int =0,
     val gender: Gender?,
     val age: Int?,
     val weight: Int?,

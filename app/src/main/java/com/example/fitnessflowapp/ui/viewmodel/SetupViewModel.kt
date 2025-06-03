@@ -6,10 +6,10 @@ import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.fitnessflowapp.data.model.ActivityLevel
 import com.example.fitnessflowapp.data.model.Gender
 import com.example.fitnessflowapp.data.model.Goal
 import com.example.fitnessflowapp.data.model.UserProfile
-import com.example.fitnessflowapp.ui.setup.ActivityLevel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -101,7 +101,6 @@ class SetupViewModel(
     fun updateAvatarUri(uri: Uri) {
         _uiState.value = _uiState.value.copy(avatarUri = uri.toString())
     }
-
 
     fun saveAllAndFinish() = viewModelScope.launch {
         val profileValues = _uiState.value
