@@ -1,0 +1,111 @@
+package com.example.fitnessflowapp.ui.workouttracker
+
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.example.fitnessflowapp.R
+import com.example.fitnessflowapp.static.ScreenTitleProvider
+import com.example.fitnessflowapp.static.ScreenType
+import com.example.fitnessflowapp.ui.components.WorkoutCard
+import com.example.fitnessflowapp.ui.components.WorkoutDetailsHeader
+
+@Composable
+fun AllWorkoutsScreen(
+    onActionClick: (String) -> Unit,
+    onWorkoutClick: (String) -> Unit
+) {
+    val title = ScreenTitleProvider.getTitle(ScreenType.ALL_WORKOUTS)
+
+    Column(modifier = Modifier.fillMaxSize()) {
+        // header hore
+        WorkoutDetailsHeader(
+            title = title,
+            onBackClick = { /* back */ },
+            onOptionsClick = { /* menu? */ }
+        )
+
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+
+
+            item {
+                Text(
+                    text = "What Do You Want to Train",
+                    fontSize = 18.sp,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(top = 8.dp, bottom = 4.dp)
+                )
+            }
+
+            items(6) { index ->
+                when (index) {
+                    0 -> WorkoutCard(
+                        title = "Fullbody Workout",
+                        exerciseCount = 11,
+                        duration = "32mins",
+                        imageResId = R.drawable.female_icon,
+                        onClick = { onWorkoutClick("fullbody") }
+                    )
+
+                    1 -> WorkoutCard(
+                        title = "Lowerbody Workout",
+                        exerciseCount = 12,
+                        duration = "40mins",
+                        imageResId = R.drawable.female_icon,
+                        onClick = { onWorkoutClick("lowerbody") }
+                    )
+
+                    2 -> WorkoutCard(
+                        title = "AB Workout",
+                        exerciseCount = 14,
+                        duration = "20mins",
+                        imageResId = R.drawable.female_icon,
+                        onClick = { onWorkoutClick("abs") }
+                    )
+
+                    3 -> WorkoutCard(
+                        title = "Fullbody Workout",
+                        exerciseCount = 11,
+                        duration = "32mins",
+                        imageResId = R.drawable.female_icon,
+                        onClick = { onWorkoutClick("fullbody") }
+                    )
+
+                    4 -> WorkoutCard(
+                        title = "Lowerbody Workout",
+                        exerciseCount = 12,
+                        duration = "40mins",
+                        imageResId = R.drawable.female_icon,
+                        onClick = { onWorkoutClick("lowerbody") }
+                    )
+
+                    5 -> WorkoutCard(
+                        title = "AB Workout",
+                        exerciseCount = 14,
+                        duration = "20mins",
+                        imageResId = R.drawable.female_icon,
+                        onClick = { onWorkoutClick("abs") }
+                    )
+                }
+            }
+
+            item {
+                Spacer(modifier = Modifier.height(32.dp))
+            }
+        }
+    }
+}
