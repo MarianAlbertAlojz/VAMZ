@@ -17,11 +17,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.fitnessflowapp.R
 
+//komentare
+//ine upravy
 enum class BottomTab(val route: String, val iconRes: Int, val label: String) {
-    Home("home", R.drawable.female_icon, "Home"),
-    Profile("profile", R.drawable.female_icon, "Profile"),
-    Stats("statistics", R.drawable.female_icon, "Statistics"),
-    Photo("progress_photo", R.drawable.female_icon, "Progress")
+    Home("home", R.drawable.icon_home, "Home"),
+    Profile("profile", R.drawable.icon_profile, "Profile"),
+    Stats("statistics", R.drawable.icon_stats, "Statistics"),
+    Photo("progress_photo", R.drawable.icon_photo, "Progress")
 }
 
 

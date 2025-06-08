@@ -21,20 +21,22 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.fitnessflowapp.R
 import com.example.fitnessflowapp.ui.theme.Black
 import com.example.fitnessflowapp.ui.theme.White
 
-
+//strings ok
+//komentare
 @Composable
 fun WelcomeScreen(
     onGetStartedClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var selectedValue by rememberSaveable { mutableStateOf("") } // toto potom riesit
+    var selectedValue by rememberSaveable { mutableStateOf("") } // zatiaľ nepoužité
 
     Column(
         modifier = Modifier
@@ -46,22 +48,18 @@ fun WelcomeScreen(
     ) {
 
         Row(
-            modifier = Modifier
-                .fillMaxWidth(),
-
-            //horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)), // prehodnotit
+            modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
-
         ) {
             Text(
-                text = "Fitness",
+                text = stringResource(R.string.welcome_fitness),
                 color = Black,
                 fontSize = 36.sp,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "Flow",
+                text = stringResource(R.string.welcome_flow),
                 color = White,
                 fontSize = 50.sp,
                 fontWeight = FontWeight.Bold
@@ -72,26 +70,22 @@ fun WelcomeScreen(
             modifier = modifier
                 .fillMaxWidth()
                 .padding(bottom = 280.dp),
-            //horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)), toto prehodnotit
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Center
-
         ) {
             Text(
-                text = "Everybody Can Train",
+                text = stringResource(R.string.welcome_subtitle),
                 color = MaterialTheme.colorScheme.secondary,
-                fontSize = 18.sp,
-
-                )
+                fontSize = 18.sp
+            )
         }
+
         Row(
             modifier = modifier
                 .fillMaxWidth()
                 .padding(top = 10.dp),
-            //horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)), toto prehodnotit
             verticalAlignment = Alignment.Bottom,
             horizontalArrangement = Arrangement.Center
-
         ) {
             Button(
                 onClick = onGetStartedClick,
@@ -104,18 +98,11 @@ fun WelcomeScreen(
                     .width(315.dp)
             ) {
                 Text(
-                    text = "Get Started",
+                    text = stringResource(R.string.get_started),
                     fontWeight = FontWeight.Bold,
                     color = Black,
                 )
             }
         }
-
     }
-}
-
-@Preview
-@Composable
-fun SelectOptionPreview() {
-
 }

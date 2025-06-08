@@ -8,6 +8,12 @@ import androidx.room.Query
 import com.example.fitnessflowapp.data.model.Workout
 import kotlinx.coroutines.flow.Flow
 
+
+/**
+ * DAO rozhranie pre databazove operacie nad tabulkou workout
+ * definuje metody na nacitanie, vlozenie a mazanie workoutov
+ *
+ */
 @Dao
 interface WorkoutDao {
     @Query("SELECT * FROM workout")

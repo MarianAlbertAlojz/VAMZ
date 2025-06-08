@@ -10,10 +10,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.chargemap.compose.numberpicker.NumberPicker
+import com.example.fitnessflowapp.R
 import com.example.fitnessflowapp.ui.components.SetupPageLayout
-
+//strings ok
+// komentare
 @Composable
 fun HeightScreen(
     height: Int,
@@ -41,7 +44,7 @@ fun HeightScreen(
 
             NumberPicker(
                 value = height,
-                range = 15..100,
+                range = 50..220,
                 onValueChange = onHeightChanged,
                 dividersColor = MaterialTheme.colorScheme.primary,
                 textStyle = MaterialTheme.typography.headlineLarge.copy(
@@ -49,7 +52,10 @@ fun HeightScreen(
                 )
             )
 
-            Text("Selected: $height kg", style = MaterialTheme.typography.bodyLarge)
+            Text(
+                text = stringResource(id = R.string.selected_weight, height),
+                style = MaterialTheme.typography.bodyLarge
+            )
 
         }
     }

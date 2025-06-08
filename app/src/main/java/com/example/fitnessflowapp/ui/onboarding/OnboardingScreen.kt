@@ -8,10 +8,12 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
-import com.example.fitnessflowapp.static.OnboardingPages
 import com.example.fitnessflowapp.navigation.Screen
+import com.example.fitnessflowapp.static.OnboardingPages
 import kotlinx.coroutines.launch
 
+
+//komentare
 @Composable
 fun OnboardingScreen(
     navController: NavHostController

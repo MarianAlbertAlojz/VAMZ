@@ -5,7 +5,19 @@ import com.example.fitnessflowapp.R
 import com.example.fitnessflowapp.data.model.SetupPage
 
 //potom pridat ine descriptions co sa tu hodia
+//koment ok
+/**
+ * poskytuje zoznam uvodnych obrazoviek pri prvom spusteni aplikacie
+ * obsahuje titulok a popis nacitany zo strings.xml
+ */
 object SetupPages {
+
+    /**
+     * vrati zoznam setup obrazoviek s obsahom
+     *
+     * @param context nacitanie stringov zo suboru resources
+     * @return obsah ktory sa zobrazi pocas nastavenia profilu
+     */
     fun getPages(context: Context): List<SetupPage> = listOf(
         SetupPage(
             title = context.getString(R.string.setup_title_1),

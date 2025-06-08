@@ -26,7 +26,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.fitnessflowapp.R
 
-
+//strings ok
+//komentare
 //dorobit autofill emailu a tel. cisla
 @Composable
 fun SetupPageLayout(

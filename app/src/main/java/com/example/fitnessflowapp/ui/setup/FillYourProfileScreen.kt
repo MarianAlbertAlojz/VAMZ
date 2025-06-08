@@ -26,14 +26,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.fitnessflowapp.R
+import com.example.fitnessflowapp.data.model.ProfileField
 import com.example.fitnessflowapp.ui.components.SetupPageLayout
 import com.example.fitnessflowapp.ui.theme.Tan
 import com.example.fitnessflowapp.ui.theme.White
-import com.example.fitnessflowapp.ui.viewmodel.ProfileField
 import com.example.fitnessflowapp.ui.viewmodel.ProfileFormState
+
+
+//strings ok
+//komentare
 
 @Composable
 fun FillYourProfileScreen(
@@ -52,15 +57,14 @@ fun FillYourProfileScreen(
         onNext = onNext
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top
         ) {
             Box {
                 Image(
                     painter = painterResource(id = R.drawable.david),
-                    contentDescription = "Profile picture",//tieto stringy niekam inak dat asi do res
+                    contentDescription = stringResource(R.string.profile_picture),
                     modifier = Modifier
                         .size(125.dp)
                         .clip(CircleShape)
@@ -69,13 +73,13 @@ fun FillYourProfileScreen(
                     onClick = onEditPictureClick,
                     modifier = Modifier
                         .align(Alignment.BottomEnd)
-                        .offset(x = (0).dp, y = (-8).dp)
+                        .offset(x = 0.dp, y = (-8).dp)
                         .size(30.dp)
                         .background(White, shape = CircleShape)
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.icon_edit),
-                        contentDescription = "Edit picture",//tieto stringy niekam inak dat asi do res
+                        contentDescription = stringResource(R.string.edit_picture),
                         tint = Color.Black,
                         modifier = Modifier.size(20.dp)
                     )
@@ -84,35 +88,36 @@ fun FillYourProfileScreen(
 
             Spacer(Modifier.height(24.dp))
             ProfileTextField(
-                label         = "Full name",//tieto stringy niekam inak dat asi do res
-                value         = form.fullName,
+                label = stringResource(R.string.profile_full_name),
+                value = form.fullName,
                 onValueChange = { onFieldChanged(ProfileField.FullName, it) }
             )
             Spacer(Modifier.height(16.dp))
             ProfileTextField(
-                label         = "Nickname",//tieto stringy niekam inak dat asi do res
-                value         = form.nickname,
+                label = stringResource(R.string.profile_nickname),
+                value = form.nickname,
                 onValueChange = { onFieldChanged(ProfileField.Nickname, it) }
             )
             Spacer(Modifier.height(16.dp))
             ProfileTextField(
-                label         = "Email",//tieto stringy niekam inak dat asi do res
-                value         = form.email,
+                label = stringResource(R.string.profile_email),
+                value = form.email,
                 onValueChange = { onFieldChanged(ProfileField.Email, it) },
-                keyboardType  = KeyboardType.Email
+                keyboardType = KeyboardType.Email
             )
             Spacer(Modifier.height(16.dp))
             ProfileTextField(
-                label         = "Mobile Number",//tieto stringy niekam inak dat asi do res
-                value         = form.mobileNumber,
+                label = stringResource(R.string.profile_mobile_number),
+                value = form.mobileNumber,
                 onValueChange = { onFieldChanged(ProfileField.Phone, it) },
-                keyboardType  = KeyboardType.Phone
+                keyboardType = KeyboardType.Phone
             )
-            Spacer(Modifier.weight(1f))
 
+            Spacer(Modifier.weight(1f))
         }
     }
 }
+
 
 
 @Composable

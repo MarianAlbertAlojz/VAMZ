@@ -23,8 +23,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.fitnessflowapp.R
 
+//strings ok
+//komentare
 @Composable
 fun WorkoutCard(
     title: String,
@@ -42,16 +46,16 @@ fun WorkoutCard(
             .clickable(onClick = onClick)
     ) {
         Row(
-            modifier = Modifier
-                .padding(16.dp),
+            modifier = Modifier.padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Column(
-                modifier = Modifier.weight(1f)
-            ) {
-                Text(text = title, style = MaterialTheme.typography.titleMedium)
+            Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = "$exerciseCount Exercises | $duration",
+                    text = title,
+                    style = MaterialTheme.typography.titleMedium
+                )
+                Text(
+                    text = stringResource(R.string.workout_card_details, exerciseCount, duration),
                     style = MaterialTheme.typography.labelMedium,
                     color = Color.Gray
                 )
@@ -61,7 +65,7 @@ fun WorkoutCard(
                     contentPadding = PaddingValues(horizontal = 12.dp, vertical = 4.dp),
                     shape = RoundedCornerShape(12.dp)
                 ) {
-                    Text("View more")
+                    Text(stringResource(R.string.view_more))
                 }
             }
 
@@ -69,7 +73,7 @@ fun WorkoutCard(
 
             Image(
                 painter = painterResource(id = imageResId),
-                contentDescription = "Workout Image",
+                contentDescription = stringResource(R.string.workout_image_description),
                 modifier = Modifier
                     .size(72.dp)
                     .clip(RoundedCornerShape(12.dp))

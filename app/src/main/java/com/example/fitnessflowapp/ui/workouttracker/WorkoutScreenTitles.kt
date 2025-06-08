@@ -1,13 +1,25 @@
-package com.example.fitnessflowapp.static
+package com.example.fitnessflowapp.ui.workouttracker
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import com.example.fitnessflowapp.R
 
+//komentare ok
+
+/**
+ * enum trieda reprezentujuca typy obrazoviek v workoutracker
+ * identifikuje sekcie/obrazovky
+ */
 enum class ScreenType {
     TRACKER, ALL_WORKOUTS, ADD_WORKOUT, ADD_EXERCISE, EXERCISE_INFO, SCHEDULE
 }
 
+/**
+ * objekt, ktory poskytuje titulok pre kazdu obrazovku
+ * na zaklade hodnoty ScreenType
+ * @param screenType typ obrazovky pre ktoru sa ma vratit nadpis
+ * @return text z strings.xml
+ */
 object ScreenTitleProvider {
     @Composable
     fun getTitle(screenType: ScreenType): String {

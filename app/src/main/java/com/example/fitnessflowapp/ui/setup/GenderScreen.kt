@@ -14,11 +14,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.fitnessflowapp.R
 import com.example.fitnessflowapp.data.model.Gender
 import com.example.fitnessflowapp.ui.components.SetupPageLayout
 
+
+//strings ok
+// komentare
 @Composable
 fun GenderScreen(
     gender: Gender?,
@@ -37,24 +41,23 @@ fun GenderScreen(
         isNextEnabled = gender != null //nepustit dalej ak nebude gender
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Top
         ) {
             GenderOption(
-                gender = Gender.Male,
-                selected = (gender == Gender.Male),
+                gender = Gender.MALE,
+                selected = (gender == Gender.MALE),
                 iconRes = R.drawable.male_icon,
-                label = "Male",
-                onClick = { onGenderSelected(Gender.Male) }
+                label = stringResource(id = R.string.gender_male),
+                onClick = { onGenderSelected(Gender.MALE) }
             )
             GenderOption(
-                gender = Gender.Female,
-                selected = (gender == Gender.Female),
+                gender = Gender.FEMALE,
+                selected = (gender == Gender.FEMALE),
                 iconRes = R.drawable.female_icon,
-                label = "Female",
-                onClick = { onGenderSelected(Gender.Female) }
+                label = stringResource(id = R.string.gender_female),
+                onClick = { onGenderSelected(Gender.FEMALE) }
             )
         }
     }

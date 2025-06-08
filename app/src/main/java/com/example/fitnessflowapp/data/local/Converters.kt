@@ -5,6 +5,12 @@ import com.example.fitnessflowapp.data.model.ActivityLevel
 import com.example.fitnessflowapp.data.model.Gender
 import com.example.fitnessflowapp.data.model.Goal
 
+
+/**
+ * trieda s konvertormi, ktore prevadzaju enumy na String a opacne
+ * Room databaza nevie ukladat enum priamo preto sa uklada ako textovy nazov
+ *
+ */
 class Converters {
     @TypeConverter
     fun fromGender(value: Gender?): String? = value?.name

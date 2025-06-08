@@ -19,35 +19,55 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
+import com.example.fitnessflowapp.R
+//strings ok
+//komentare
 @Composable
 fun WorkoutProgressChart(
     data: List<Float>,
     selectedDayIndex: Int = 4,
-    workoutName: String = "Upperbody Workout"
+    workoutName: String = stringResource(R.string.upperbody_workout_title)
 ) {
     val maxPercentage = 100f
-    val days = listOf("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+    val context = LocalContext.current
 
-    Column(modifier = Modifier
-        .fillMaxWidth()
-        .background(Color.White)) {
+    val days = listOf(
+        context.getString(R.string.day_sun),
+        context.getString(R.string.day_mon),
+        context.getString(R.string.day_tue),
+        context.getString(R.string.day_wed),
+        context.getString(R.string.day_thu),
+        context.getString(R.string.day_fri),
+        context.getString(R.string.day_sat)
+    )
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.White)
+    ) {
 
         Row(
             Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Text("Workout Progress", fontWeight = FontWeight.Bold, fontSize = 16.sp)
+            Text(
+                text = stringResource(R.string.workout_progress_title),
+                fontWeight = FontWeight.Bold,
+                fontSize = 16.sp
+            )
             Button(
                 onClick = {},
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFD7B59F)),
                 elevation = ButtonDefaults.buttonElevation(defaultElevation = 2.dp)
             ) {
-                Text("Weekly")
+                Text(text = stringResource(R.string.workout_progress_button))
             }
         }
 
@@ -104,3 +124,4 @@ fun WorkoutProgressChart(
         }
     }
 }
+

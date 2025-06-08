@@ -31,39 +31,47 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.fitnessflowapp.static.ScreenTitleProvider
-import com.example.fitnessflowapp.static.ScreenType
+import androidx.navigation.NavHostController
+import com.example.fitnessflowapp.R
 import com.example.fitnessflowapp.ui.components.WorkoutDetailsHeader
 
+//strings done
+//komentare
 @Composable
-fun WorkoutScheduleScreen() {
-    var selectedDate by remember { mutableStateOf("Fri, 14 May") }
+fun WorkoutScheduleScreen(navController: NavHostController) {
+    val context = LocalContext.current
+    val title = ScreenTitleProvider.getTitle(ScreenType.SCHEDULE)
+    var selectedDate by remember { mutableStateOf(context.getString(R.string.date_example)) }
     var showAddDialog by remember { mutableStateOf(false) }
     val workouts = remember {
         mutableStateListOf(
-            WorkoutItem("Ab Workout", "7:30 AM"),
-            WorkoutItem("Upperbody Workout", "9:00 AM"),
-            WorkoutItem("Lowerbody Workout", "3:00 PM")
+            WorkoutItem(context.getString(R.string.ab_workout_title), context.getString(R.string.time_7_30_am)),
+            WorkoutItem(context.getString(R.string.upperbody_workout_title), context.getString(R.string.time_9_00_am)),
+            WorkoutItem(context.getString(R.string.lowerbody_workout_title), context.getString(R.string.time_3_00_pm))
         )
     }
-    val title = ScreenTitleProvider.getTitle(ScreenType.SCHEDULE)
+
 
     Column(modifier = Modifier.fillMaxSize()) {
         WorkoutDetailsHeader(
             title = title,
-            onBackClick = { /* back */ },
-            onOptionsClick = { /* menu? */ }
+            onBackClick = { navController.popBackStack() },
+            onOptionsClick = { }
         )
-        Box(modifier = Modifier.fillMaxSize()) {
-            Column(modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)) {
-                Text("Workout Schedule", style = MaterialTheme.typography.headlineSmall)
-                Text(selectedDate, fontSize = 14.sp, color = Color.Gray)
 
+        Box(modifier = Modifier.fillMaxSize()) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp)
+            ) {
+                Text(text = title, style = MaterialTheme.typography.headlineSmall)
+                Text(text = selectedDate, fontSize = 14.sp, color = Color.Gray)
                 Spacer(modifier = Modifier.height(16.dp))
 
                 LazyColumn(modifier = Modifier.weight(1f)) {
@@ -79,14 +87,17 @@ fun WorkoutScheduleScreen() {
                     .align(Alignment.BottomEnd)
                     .padding(16.dp)
             ) {
-                Icon(Icons.Default.Add, contentDescription = "Add")
+                Icon(Icons.Default.Add, contentDescription = stringResource(id = R.string.add))
             }
 
             if (showAddDialog) {
-                AddWorkoutDialog(onDismiss = { showAddDialog = false }) { newWorkout ->
-                    workouts.add(newWorkout)
-                    showAddDialog = false
-                }
+                AddWorkoutDialog(
+                    onDismiss = { showAddDialog = false },
+                    onAdd = {
+                        workouts.add(it)
+                        showAddDialog = false
+                    }
+                )
             }
         }
     }
@@ -114,36 +125,41 @@ fun WorkoutCard(workout: WorkoutItem) {
     }
 }
 
+
 @Composable
 fun AddWorkoutDialog(onDismiss: () -> Unit, onAdd: (WorkoutItem) -> Unit) {
     var name by remember { mutableStateOf("") }
-    var time by remember { mutableStateOf("3:30 PM") }
+    var time by remember { mutableStateOf("") }
 
     AlertDialog(
         onDismissRequest = onDismiss,
         confirmButton = {
             TextButton(onClick = {
-                if (name.isNotBlank()) onAdd(WorkoutItem(name, time))
+                if (name.isNotBlank() && time.isNotBlank()) {
+                    onAdd(WorkoutItem(name, time))
+                }
             }) {
-                Text("Save")
+                Text(text = stringResource(id = R.string.save))
             }
         },
         dismissButton = {
             TextButton(onClick = onDismiss) {
-                Text("Cancel")
+                Text(text = stringResource(id = R.string.cancel))
             }
         },
-        title = { Text("Add Schedule") },
+        title = { Text(stringResource(id = R.string.add_schedule_title)) },
         text = {
             Column {
                 OutlinedTextField(
                     value = name,
                     onValueChange = { name = it },
-                    label = { Text("Workout Name") })
+                    label = { Text(stringResource(id = R.string.workout_details_name)) }
+                )
                 OutlinedTextField(
                     value = time,
                     onValueChange = { time = it },
-                    label = { Text("Time") })
+                    label = { Text(stringResource(id = R.string.time)) }
+                )
             }
         }
     )

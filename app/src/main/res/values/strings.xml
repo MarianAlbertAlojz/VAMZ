@@ -7,21 +7,41 @@
     <string name="start">Start</string>
     <string name="get_started">Get Started</string>
     <string name="continue_text">Continue</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="add">Add</string>
+    <string name="check">Check</string>
+    <string name="time">Time</string>
+    <string name="enter_name">Enter name</string>
+    <string name="more_options">More options</string>
 
     <!-- Onboarding -->
-    <!-- Onboarding titles -->
     <string name="onboarding_title_1">Track Your Goal</string>
     <string name="onboarding_title_2">Get Burn</string>
     <string name="onboarding_title_3">Eat Well</string>
     <string name="onboarding_title_4">Improve Sleep Quality</string>
-    <!-- Onboarding descriptions -->
+
     <string name="onboarding_desc_1">Don’t worry if you have trouble determining your goals, We can help you determine your goals and track your goals</string>
     <string name="onboarding_desc_2">Let’s keep burning, to achieve your goals, it hurts only temporarily, if you give up now you will be in pain forever</string>
     <string name="onboarding_desc_3">Let’s start a healthy lifestyle with us, we can determine your diet every day. Healthy eating is fun!</string>
     <string name="onboarding_desc_4">Improve the quality of your sleep with us, good sleep quality can bring a good mood in the morning.</string>
 
-    <!-- SetupPage -->
-    <!-- SetupPage titles -->
+    <!-- Welcome Screen -->
+    <string name="welcome_fitness">Fitness</string>
+    <string name="welcome_flow">Flow</string>
+    <string name="welcome_subtitle">Everybody Can Train</string>
+
+
+    <!-- Profile Setup Strings -->
+    <string name="profile_picture">Profile picture</string>
+    <string name="edit_picture">Edit picture</string>
+    <string name="profile_full_name">Full name</string>
+    <string name="profile_nickname">Nickname</string>
+    <string name="profile_email">Email</string>
+    <string name="profile_mobile_number">Mobile Number</string>
+
+
+    <!-- SetupPage Titles -->
     <string name="setup_title_1">Consistency Is The Key To Progress. Don’t Give Up</string>
     <string name="setup_title_2">What’s Your Gender</string>
     <string name="setup_title_3">How Old Are You?</string>
@@ -30,8 +50,147 @@
     <string name="setup_title_6">What Is Your Goal?</string>
     <string name="setup_title_7">Physical Activity Level</string>
     <string name="setup_title_8">Fill Your Profile</string>
-    <!-- SetupPage descriptions -->
+
+    <!-- SetupPage Description -->
     <string name="setup_lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+    <string name="selected_weight">Selected: %1$d kg</string>
+    <string name="selected_height">Selected: %1$d cm</string>
+    <string name="selected_age">Selected: %1$d</string>
+    <!-- Gender -->
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+
+
+    <!-- Tracker Section Titles -->
+    <string name="workout_tracker_home_title">Workout Tracker</string>
+    <string name="workout_schedule_title">Workout Schedule</string>
+    <string name="add_your_workout_title">Add Your Workout</string>
+    <string name="add_your_exercise_title">Add Your Exercise</string>
+    <string name="exercise_info_title">Exercise Information</string>
+    <string name="all_workouts_title">All Workouts</string>
+
+    <!-- Action Cards -->
+    <string name="daily_workout_schedule">Daily Workout Schedule</string>
+
+    <!-- Labels and Descriptions -->
+    <string name="train_desc">What Do You Want to Train</string>
+    <string name="workout_add">Add Your Exercise</string>
+    <string name="workout_details">Workout Details</string>
+    <string name="workout_exercises">Exercises In This Workout</string>
+    <string name="workout_details_name">Workout Name</string>
+    <string name="exercise_details_name">Exercise Name</string>
+    <string name="exercise_details_target">Target Muscle Group</string>
+    <string name="exercise_details_type">Exercise Type</string>
+    <string name="exercise_details_photo">Add Photo</string>
+    <string name="exercise_info_details">How It Went</string>
+    <string name="exercise_info_set">Sets</string>
+    <string name="details_difficulty">Difficulty</string>
+    <string name="notes">Notes</string>
+    <string name="enter_exercise_name">Enter Name</string>
+    <string name="exercise_info_rep">Reps</string>
+    <string name="notes_placeholder">Write your %1$s here…</string>
+    <string name="exercise_info_weight">Weight(kg)</string>
+    <string name="exercise_details">Exercise Details</string>
+    <string name="custom_sets_title">Custom Repetition And Weights</string>
+    <string name="tap_for_more_info">Tap for more info</string>
+    <string name="more_info">More info</string>
+
+    <!-- Dialogs -->
+    <string name="select_difficulty">Select Difficulty</string>
+    <string name="select_target_muscle">Target Muscle Group</string>
+    <string name="select_exercise_type">Exercise Type</string>
+    <string name="add_schedule_title">Add Schedule</string>
+
+
+    <!-- Difficulty Levels -->
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_medium">Medium</string>
+    <string name="difficulty_hard">Hard</string>
+
+    <!-- Muscle Groups -->
+    <string name="muscle_legs">Legs</string>
+    <string name="muscle_chest">Chest</string>
+    <string name="muscle_back">Back</string>
+    <string name="muscle_arms">Arms</string>
+    <string name="muscle_shoulders">Shoulders</string>
+
+    <!-- Exercise Types -->
+    <string name="type_strength">Strength</string>
+    <string name="type_flexibility">Flexibility</string>
+    <string name="type_cardio">Cardio</string>
+    <string name="type_mobility">Mobility</string>
+
+    <!-- Workout Types -->
+    <string name="fullbody_workout_title">Fullbody Workout</string>
+    <string name="lowerbody_workout_title">Lowerbody Workout</string>
+    <string name="ab_workout_title">AB Workout</string>
+    <string name="upperbody_workout_title">Upperbody Workout</string>
+
+    <!-- Durations -->
+    <string name="duration_32mins">32mins</string>
+    <string name="duration_40mins">40mins</string>
+    <string name="duration_20mins">20mins</string>
+
+    <!-- Dates -->
+    <string name="date_example">Fri, 14 May</string>
+
+    <!-- Times -->
+    <string name="time_3_30_pm">3:30 PM</string>
+    <string name="time_7_30_am">7:30 AM</string>
+    <string name="time_9_00_am">9:00 AM</string>
+    <string name="time_3_00_pm">3:00 PM</string>
+
+    <!-- Defaults for ViewModel -->
+    <string name="default_workout_name">Default Workout</string>
+    <string name="default_exercise_name">Default Exercise</string>
+
+
+    <!-- BMI -->
+    <string name="bmi_underweight">Underweight</string>
+    <string name="bmi_normal">You have a normal weight</string>
+    <string name="bmi_overweight">Overweight</string>
+    <string name="bmi_obese">Obese</string>
+
+    <!-- HomeScreen Specific -->
+    <string name="welcome_back">Welcome Back,</string>
+    <string name="bmi_title">BMI (Body Mass Index)</string>
+    <string name="bmi_not_available">BMI not available. Please complete your profile.</string>
+    <string name="view_more">View More</string>
+    <string name="latest_workout">Latest Workout</string>
+    <string name="section_sleep">Sleep</string>
+    <string name="section_steps">Steps</string>
+    <string name="section_weight">Weight</string>
+    <string name="section_vitals">Vitals</string>
+    <string name="bmi_no_data">No data</string>
+    <string name="calories_180_20min">180 Calories Burn | 20 minutes</string>
+    <string name="calories_200_30min">200 Calories Burn | 30 minutes</string>
+
+    <!-- Workout Progress -->
+    <string name="workout_progress_title">Workout Progress</string>
+    <string name="workout_progress_button">Weekly</string>
+
+    <!-- Days of the week -->
+    <string name="day_sun">Sun</string>
+    <string name="day_mon">Mon</string>
+    <string name="day_tue">Tue</string>
+    <string name="day_wed">Wed</string>
+    <string name="day_thu">Thu</string>
+    <string name="day_fri">Fri</string>
+    <string name="day_sat">Sat</string>
+
+    <!-- WorkoutCard Specific -->
+    <string name="workout_card_details">%1$d Exercises | %2$s</string>
+    <string name="workout_image_description">Workout Image</string>
+
+    <!-- Components -->
+    <string name="set_label">Set</string>
+    <string name="reps_label">Reps</string>
+    <string name="weight_label">Weight (kg)</string>
+    <string name="remove_set">Remove</string>
+
+    <string name="dialog_enter_workout_title">Enter Workout Name</string>
+
+
 
 
 </resources>

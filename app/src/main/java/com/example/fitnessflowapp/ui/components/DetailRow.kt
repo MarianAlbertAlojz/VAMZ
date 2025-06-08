@@ -18,6 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.fitnessflowapp.R
 
+//komentare
 @Composable
 fun DetailRow(label: String, value: String, onClick: () -> Unit) {
     Row(

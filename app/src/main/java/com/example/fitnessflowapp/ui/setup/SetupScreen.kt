@@ -19,12 +19,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.fitnessflowapp.R
 import com.example.fitnessflowapp.ui.theme.Black
 import com.example.fitnessflowapp.ui.theme.White
 
+//strings ok
+// komentare
 @Composable
 fun SetupScreen(
     title: String,
@@ -78,7 +81,7 @@ fun SetupScreen(
                 .width(315.dp)
         ) {
             Text(
-                text = "Next",
+                text = stringResource(id = R.string.next),
                 fontWeight = FontWeight.Bold,
                 color = Black,
             )

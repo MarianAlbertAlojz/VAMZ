@@ -19,7 +19,8 @@ import androidx.compose.ui.unit.dp
 import com.example.fitnessflowapp.data.model.ActivityLevel
 import com.example.fitnessflowapp.ui.components.SetupPageLayout
 
-//enum class ActivityLevel { Beginner, Intermediate, Advanced } // toto potom premysliet ze kde to dat
+//strings nist
+//dokumentacie
 
 @Composable
 fun PhysicalActivityLevelScreen(

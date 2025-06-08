@@ -17,8 +17,12 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.fitnessflowapp.R
 
+//strings ok
+//komentare
 @Composable
 fun SetRow(
     index: Int,
@@ -40,7 +44,7 @@ fun SetRow(
             TextField(
                 value = set.toString(),
                 onValueChange = { onChange(Triple(it.toIntOrNull() ?: set, reps, weight)) },
-                label = { Text("Set") },
+                label = { Text(stringResource(R.string.set_label)) },
                 modifier = Modifier.weight(1f),
                 singleLine = true
             )
@@ -48,7 +52,7 @@ fun SetRow(
             TextField(
                 value = reps.toString(),
                 onValueChange = { onChange(Triple(set, it.toIntOrNull() ?: reps, weight)) },
-                label = { Text("Reps") },
+                label = { Text(stringResource(R.string.reps_label)) },
                 modifier = Modifier.weight(1f),
                 singleLine = true
             )
@@ -56,13 +60,16 @@ fun SetRow(
             TextField(
                 value = weight.toString(),
                 onValueChange = { onChange(Triple(set, reps, it.toIntOrNull() ?: weight)) },
-                label = { Text("Weight (kg)") },
+                label = { Text(stringResource(R.string.weight_label)) },
                 modifier = Modifier.weight(1f),
                 singleLine = true
             )
             Spacer(modifier = Modifier.width(8.dp))
             IconButton(onClick = onRemove) {
-                Icon(Icons.Default.Delete, contentDescription = "Remove")
+                Icon(
+                    imageVector = Icons.Default.Delete,
+                    contentDescription = stringResource(R.string.remove_set)
+                )
             }
         }
     }

@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.fitnessflowapp.data.model.ActivityLevel
 import com.example.fitnessflowapp.data.model.Gender
 import com.example.fitnessflowapp.data.model.Goal
+import com.example.fitnessflowapp.data.model.ProfileField
 import com.example.fitnessflowapp.data.model.UserProfile
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -18,7 +19,8 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-enum class ProfileField { FullName, Nickname, Email, Phone } //toto premysliet kde to dat
+//komentare
+//strings ok
 
 data class ProfileFormState(
     val avatarUri: Uri?,

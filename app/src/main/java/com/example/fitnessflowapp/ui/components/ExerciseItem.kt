@@ -18,9 +18,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.fitnessflowapp.R
 
+//string ok
+//komentare
 @Composable
 fun ExerciseItem(
     name: String,
@@ -48,11 +51,14 @@ fun ExerciseItem(
                 modifier = Modifier.weight(1f)
             ) {
                 Text(text = name, style = MaterialTheme.typography.titleMedium)
-                Text(text = "Tap for more info", style = MaterialTheme.typography.bodySmall)
+                Text(
+                    text = stringResource(R.string.tap_for_more_info),
+                    style = MaterialTheme.typography.bodySmall
+                )
             }
             Icon(
                 painter = painterResource(id = R.drawable.icon_arrow_right),
-                contentDescription = "Info",
+                contentDescription = stringResource(R.string.more_info),
                 modifier = Modifier
                     .size(24.dp)
                     .clickable { onInfoClick() }

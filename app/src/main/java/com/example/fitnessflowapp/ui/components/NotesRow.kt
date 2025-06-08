@@ -17,15 +17,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.fitnessflowapp.R
 
+//strings ok
+//komentare
 @Composable
 fun NotesRow(
     isExpanded: Boolean,
     onToggle: () -> Unit,
     text: String,
-    onTextChange: (String) -> Unit
+    onTextChange: (String) -> Unit,
+    title: String
 ) {
     Column(
         modifier = Modifier
@@ -38,11 +42,11 @@ fun NotesRow(
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.icon_notes),
-                contentDescription = "Notes",
+                contentDescription = title,
                 modifier = Modifier.size(20.dp)
             )
             Spacer(modifier = Modifier.width(12.dp))
-            Text("Notes", style = MaterialTheme.typography.bodyMedium)
+            Text(title, style = MaterialTheme.typography.bodyMedium)
         }
 
         if (isExpanded) {
@@ -50,9 +54,12 @@ fun NotesRow(
             TextField(
                 value = text,
                 onValueChange = onTextChange,
-                placeholder = { Text("Write your notes here...") },
+                placeholder = {
+                    Text(stringResource(R.string.notes_placeholder, title))
+                },
                 modifier = Modifier.fillMaxWidth()
             )
         }
     }
 }
+

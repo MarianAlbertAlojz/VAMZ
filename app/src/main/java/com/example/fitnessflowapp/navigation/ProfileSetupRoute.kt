@@ -7,17 +7,32 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
-import com.example.fitnessflowapp.static.SetupPages
 import com.example.fitnessflowapp.navigation.Screen
 import com.example.fitnessflowapp.navigation.SetupStep
+import com.example.fitnessflowapp.static.SetupPages
 import com.example.fitnessflowapp.ui.setup.FillYourProfileScreen
 import com.example.fitnessflowapp.ui.viewmodel.SetupViewModel
 
 /*
+* poznamky mimo
 * tu budem musiet spravit to ze sa to bude dat aj editovat teda daky crop fotky
-* zaroven to dako spravit tak aby mohol toto byt daky kvazi komponent pri editacii fotky aj normalnom screene profilu
-* budem musiet dotiahnut viewModel teda cely MVVM
+* zaroven to dako spravit tak aby mohol toto byt daky kvazi komponent
+* pri editacii fotky aj normalnom screene profilu
+*
 * */
+
+
+/**
+ * reprezentuje posledny krok v onboarding procese – vyplnenie profilu
+ * logika na vyber profilovej fotky, pracu s ViewModelom a navigaciu po dokonceni
+ *
+ * nacitava text z objektu SetupPages podla indexu kroku
+ * reaguje na zmenu textovych poli a kliknutie na tlacidlo ulozit
+ * po potvrdeni ulozi profil a presmeruje pouzivatela na domovsku obrazovku
+ *
+ * @param navController controller pre prechod medzi obrazovkami
+ * @param vm ViewModel zodpovedny za stav formulara profilu
+ */
 @Composable
 fun ProfileSetupRoute(
     navController: NavHostController,
@@ -27,6 +42,7 @@ fun ProfileSetupRoute(
     val context = LocalContext.current
     val page = SetupPages.getPages(context)[SetupStep.Profile.pageIndex]
 
+    //vyber obrazka z galerie
     val pickImage = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent()
     ) { uri: Uri? ->

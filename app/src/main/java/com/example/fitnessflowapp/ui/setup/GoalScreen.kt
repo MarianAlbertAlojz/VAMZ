@@ -25,6 +25,8 @@ import androidx.compose.ui.unit.dp
 import com.example.fitnessflowapp.data.model.Goal
 import com.example.fitnessflowapp.ui.components.SetupPageLayout
 
+//strings nist
+//komentare
 
 @Composable
 fun GoalScreen(

@@ -4,7 +4,19 @@ import android.content.Context
 import com.example.fitnessflowapp.R
 import com.example.fitnessflowapp.data.model.OnboardingPage
 
+//ok
+/**
+ * vracia zoznam onboarding stranok zobrazovanych pri prvom spusteni aplikacie
+ * kazda stranka obsahuje nadpis, popis a obrazky pre pozadie a tlacidlo
+ */
 object OnboardingPages {
+
+    /**
+     * vrati zoznam onboarding stranok
+     *
+     * @param context nacitanie stringov zo suboru resources
+     * @return obsah ktory sa zobrazi pocas uvitania
+     */
     fun getPages(context: Context): List<OnboardingPage> = listOf(
         OnboardingPage(
             title = context.getString(R.string.onboarding_title_1),

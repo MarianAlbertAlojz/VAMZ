@@ -16,6 +16,9 @@ import com.example.fitnessflowapp.ui.components.BottomNavigationDashboard
 import com.example.fitnessflowapp.ui.components.FitnessFab
 import com.example.fitnessflowapp.ui.viewmodel.ProfileViewModel
 
+
+//komentare
+//zmena podla figmy
 @Composable
 fun ProfileScreen(
     navController: NavHostController,
@@ -30,8 +33,11 @@ fun ProfileScreen(
                 currentRoute = currentRoute,
                 onTabSelected = { selectedTab ->
                     navController.navigate(selectedTab.route) {
-                        popUpTo(currentRoute) { inclusive = false }
+                        popUpTo(navController.graph.startDestinationId) {
+                            saveState = true
+                        }
                         launchSingleTop = true
+                        restoreState = true
                     }
                 }
             )
